@@ -12,10 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+
     <title>command helper</title>
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center w-100 vh-100" style="background-color: rgba(0, 0, 0, 0.119);" id="command_helper_body">
+    <div class="d-flex justify-content-center align-items-center w-100 vh-100" style="background-color: rgba(0, 0, 0, 0.119); display: flex;" id="command_helper_body">
         <div class="w-75 h-75 bg-light d-flex position-relative border rounded-2" style="overflow: hidden;">
             <div class="position-absolute bg-dark text-white w-100 d-flex justify-content-between align-items-center px-3 py-1" style="border-bottom: 1px solid rgba(82, 82, 82, 0.342); z-index: 2; overflow: hidden;top: 0;left: 0;">
                 <p class="m-0 p-0">Command Helper</p>
@@ -63,11 +66,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="position-relative flex-column bg-light justify-content-start align-items-start" style="width: 80%;height: 100%;" id="c_mainbar">
+            <div class="position-relative flex-column bg-light justify-content-start align-items-start" style="width: 80%;height: 100%; overflow-y: auto;" id="c_mainbar">
                 
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

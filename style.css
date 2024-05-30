@@ -36,3 +36,7 @@
 li .material-symbols-outlined {
     margin-right: 8px;
 }
+
+.c_link:hover {
+    color: orange;
+}

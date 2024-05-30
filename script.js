@@ -134,9 +134,19 @@ const job = {
 
 console.log(job);
 
-function appendUl() {
-    $('#c_mainbar').empty().append(`
-        <ul class='c_scroll mt-2 pt-5 px-5' style='list-style-type: none; z-index: 10' id='expand_ul'></ul>
+function appendUl(param) {
+    switch (param) {
+        case 'general': $('#c_mainbar').empty().append(`<h2 class='m-0 p-0 mt-2 pt-5 px-2'>General command list</h2>`); break;
+        case 'vehicle': $('#c_mainbar').empty().append(`<h2 class='m-0 p-0 mt-2 pt-5 px-2'>Vehicle command list</h2>`); break;
+        case 'house': $('#c_mainbar').empty().append(`<h2 class='m-0 p-0 mt-2 pt-5 px-2'>House command list</h2>`); break;
+        case 'company': $('#c_mainbar').empty().append(`<h2 class='m-0 p-0 mt-2 pt-5 px-2'>Company command list</h2>`); break;
+        case 'faction': $('#c_mainbar').empty().append(`<h2 class='m-0 p-0 mt-2 pt-5 px-2'>Faction command list</h2>`); break;
+        case 'job': $('#c_mainbar').empty().append(`<h2 class='m-0 p-0 mt-2 pt-5 px-2'>Jobs command list</h2>`); break;
+        
+        default: break;
+    }
+    $('#c_mainbar').append(`
+        <ul class='c_scroll mt-1 pt-1 px-5' style='list-style-type: none; z-index: 10' id='expand_ul'></ul>
     `);
 };
 
@@ -144,7 +154,8 @@ function expandMain(params) {
 
     switch (params) {
         case 'general':
-            appendUl();
+            appendUl(params);
+            $('.'+params+'Li').toggleClass('text-info');
             general.forEach(element => {
                 $('#expand_ul').append(`
                     <li style='border-bottom: 2px dotted orange'><small>`+element+`</small></li>
@@ -152,7 +163,8 @@ function expandMain(params) {
             });
             break;
         case 'vehicle':
-            appendUl();
+            $('.'+params+'Li').toggleClass('text-info');
+            appendUl(params);
             vehicle.forEach(element => {
                 $('#expand_ul').append(`
                     <li style='border-bottom: 2px dotted orange'><small>`+element+`</small></li>
@@ -160,7 +172,8 @@ function expandMain(params) {
             });
             break;
         case 'house':
-            appendUl();
+            $('.'+params+'Li').toggleClass('text-info');
+            appendUl(params);
             house.forEach(element => {
                 $('#expand_ul').append(`
                     <li style='border-bottom: 2px dotted orange'><small>`+element+`</small></li>
@@ -168,7 +181,8 @@ function expandMain(params) {
             });
             break;
         case 'company':
-            appendUl();
+            $('.'+params+'Li').toggleClass('text-info');
+            appendUl(params);
             company.forEach(element => {
                 $('#expand_ul').append(`
                     <li style='border-bottom: 2px dotted orange'><small>`+element+`</small></li>
@@ -176,8 +190,9 @@ function expandMain(params) {
             });
             break;
         case 'faction':
-            appendUl();
+            appendUl(params);
             const factionList = [faction.SASD, faction.SAFD];
+            $('.'+params+'Li').toggleClass('text-info');
 
             factionList.forEach(element => {
                 for(let i = 0;i < element.length ; i++){
@@ -194,9 +209,9 @@ function expandMain(params) {
             });
             break;
         case 'job':
-            appendUl();
+            appendUl(params);
             const jobList = [job.Mechanic, job.Farmer, job.Fishing , job.Lumber, job.Postalion, job["Taxi Driver"], job.Trucker];
-        
+            $('.'+params+'Li').toggleClass('text-info');
 
             jobList.forEach(element => {
                 for(let i = 0;i < element.length ; i++){
